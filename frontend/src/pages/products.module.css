@@ -1,3 +1,10 @@
+.productsTitle {
+    text-align: center;
+    color: #201600;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px #744f00;
+}
+
 .cardContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, min-max(300px, 1fr));

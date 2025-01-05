@@ -34,7 +34,7 @@ const Products: React.FC = () => {
         <>
         <Navbar />
         <main>
-            <h1>Nos produits</h1>
+            <h1 className={styles.productsTitle}>Nos produits</h1>
             <div className={styles.cardContainer}>
                 {products.map(product => (
                     <ProductCard key={product.id} product={product} />

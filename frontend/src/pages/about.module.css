@@ -1,0 +1,65 @@
+.main {
+    padding: 2rem;
+    font-family: 'Lora', sans-serif;
+    background: #F8F3E7;
+    color: #4E342E;
+    line-height: 1.6;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 2rem;
+    background: linear-gradient(to bottom, #8D6E63, #6D4C41);
+    color: #fff;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+.history, .team, .values {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.history h2, .team h2, .values h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.values ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.values li {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.values li::before {
+    content: "🍫";
+    margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p, .history p, .team p {
+        font-size: 1rem;
+    }
+}
