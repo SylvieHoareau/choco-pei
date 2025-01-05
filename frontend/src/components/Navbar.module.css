@@ -1,25 +1,119 @@
-.nav{
+/* Navbar.module.css */
+
+/**Pour les  petits écrans (Mobile First) */
+.nav {
     background-color: #5c4033;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-family: 'Playfair Display', sans-serif;
+}
+
+.nav h1 {
+    color: white;
 }
 
 .navList {
     list-style: none;
     display: flex;
-    justify-content: space-around;
+    justify-content: column;
     padding: 0;
+    align-items: center;
+    display: none;
 }
 
+.navList.show {
+    display: block;
+}
+
+/* Style des éléments de navigation */
 .navItem{
-    margin: 0 1rem;
+    margin: 0.5rem 0;
 }
 
 .navLink {
     color: #FFD700;
     text-decoration: none;
     font-weight: bold;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Survol de la navbar */
 .navLink:hover {
+    background-color: #4c2a1d;
     text-decoration: underline;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navLink:focus {
+    outline: 2px solid #FFD700;
+    outline-offset: 4px;
+}
+
+/* Style du menu hamburger */
+.hamburger {
+    display: block;
+    font-size: 2rem;
+    color: #FFD700;
+    cursor: pointer;
+    margin: 1rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}
+
+.hamburger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #FFD700;
+    margin: 6px 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Transformation de l'icône hamburger en croix */
+.hamburger.open span:nth-child(1)  {
+    transform: rotate(45deg);
+    position: relative;
+    top: 6px;
+}
+
+/* Cacher la barre du milieu */
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3)  {
+    transform: rotate(-45deg);
+    position: relative;
+    top: -6px;
+}
+
+/* Cacher le menu sur mobile */
+.navList.hide {
+    display: none;
+}
+
+/* Ecran plus large (tablettes, PC) */
+@media (min-width: 768px) {
+    .nav {
+        flex-direction: row;
+    } 
+
+    .navList {
+        flex-direction: row;
+    }
+
+    .navItem {
+        margin: 0 1rem;
+    }
+
+    /* Rendre le hamburger invisible sur les grands écrans */
+    .hamburger {
+        display: none;
+    }
 }
