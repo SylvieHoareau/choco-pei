@@ -47,7 +47,7 @@ const Mentions: React.FC = () => {
                     Nous utilisons également des cookies pour améliorer votre expérience utilisateur. Pour plus d'informations, consultez notre politique de confidentialité. 
                 </p>
 
-                <h2>Limitation de réeponsabilité</h2>
+                <h2>Limitation de responsabilité</h2>
                 <p>
                     L'éditeur du site ne saurait être tenu responsable des erreurs ou des interruptions de service. Le contenu de ce site est donné à titre informatif et peut être modifié sans préavis.
                 </p>
