@@ -1,14 +1,12 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Link from "next/link";
 import styles from '@/pages/privacy-policy.module.css';
-import '@/styles/globals.css';
 
 const PrivacyPolicy: React.FC = () => {
     return (
         <>
             <Navbar />
-            <main>
+            <main className={styles.main}>
                 <h1>Politique de confidentialité</h1>
                 <p>Chez Choco Péi, nous respectons votre vie privée...</p>
                 <h2>1. Données collectées</h2>

@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
 import { Product } from "@/types/product";
 import styles from "@/pages/products.module.css";
-import '@/styles/globals.css';
 
 const products: Product[] = [
     {

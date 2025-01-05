@@ -7,14 +7,14 @@ const CookieBanner: React.FC = () => {
             buttonText="Accepter"
             declineButtonText="Refuser"
             style={{ background: "#3e2723", color: "#fff" }}
-            cookieName="chocopei-cookie-consent"
+            cookieName="chocopei-consent"
             expires={30}
             buttonStyle={{ background: "#ffd700", color: "#3e2723"}}
             declineButtonStyle={{ background: "#5C4033", color: "#fff"}}
             enableDeclineButton
         >
             Nous utilisons des cookies pour améliorer votre expérience et fournir des services de meilleure qualité. En continuant à utiliser notre site, vous acceptez cela.
-            <a href="/privacy-policy" style={{ color: "#5C4033", marginLeft: "10px" }}>
+            <a href="/privacy-policy" style={{ color: "#5C4033", textDecoration: "underline" }}>
                 En savoir plus
             </a>
         </CookieConsent>

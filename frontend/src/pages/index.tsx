@@ -2,7 +2,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import styles from '@/pages/index.module.css';
-import '@/styles/globals.css';
 
 const Home: React.FC = () => {
     return (

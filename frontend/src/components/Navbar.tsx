@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import styles from '@/components/Navbar.module.css';
-import '../styles/globals.css';
 
 const Navbar: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);

@@ -1,5 +1,5 @@
 import { Product } from '../types/product';
-import styles from '@/components/ProductCard.module.css'
+import styles from '@/components/ProductCard.module.css';
 
 interface ProductCardProps {
     product: Product;

@@ -1,7 +1,7 @@
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import styles from "@/pages/contact.module.css";
-import '@/styles/globals.css';
 
 const Contact: React.FC = () => {
     return (
@@ -19,6 +19,11 @@ const Contact: React.FC = () => {
                     <label htmlFor="message">Message : </label>
                     <input type="text" id="message" name="message" required/>
 
+                    
+                    <label htmlFor="">
+                        <input type="checkbox" required/>
+                        J'accepte la <Link href="/privacy-policy">Politique de confidentialité</Link>
+                    </label>
                     <button type="submit" className={styles.submitButton}>Envoyer</button>
                 </form>
             </main>
