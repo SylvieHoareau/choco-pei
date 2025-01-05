@@ -1,0 +1,13 @@
+.cardContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, min-max(300px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+
+/* Media Queries pour tablettes et desktop */
+@media (min-width: 768px) {
+    .cardContainer {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}

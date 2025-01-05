@@ -18,7 +18,19 @@ const Navbar: React.FC = () => {
             </div>
 
             {/* Icône du hamburger, visible sur mobile */}
-            <div className={`${styles.hamburger} ${isMenuOpen ? styles.open : ''}`} onClick={toggleMenu} aria-label="Ouvrir le menu">
+            <div 
+                className={`${styles.hamburger} ${isMenuOpen ? styles.open : ''}`} 
+                onClick={toggleMenu} 
+                aria-label="Ouvrir le menu"
+                aria-expanded={isMenuOpen}
+                role="button"
+                tabIndex={0}
+                onKeyPress={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        toggleMenu();
+                    }
+                }}
+            >
                 <span></span>
                 <span></span>
                 <span></span>

@@ -1,4 +1,5 @@
 import { Product } from '../types/product';
+import styles from '@/components/ProductCard.module.css'
 
 interface ProductCardProps {
     product: Product;
@@ -6,11 +7,11 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     return (
-        <div className="product-card border-orange-200 rounded-md">
-            <img src={product.image} alt={product.name} className="w-8 h-12"/>
+        <div className={styles.card}>
+            <img src={product.image} alt={product.name} className={styles.image}/>
             <h3>{product.name}</h3>
             <p>{product.description}</p>
-            <p>{product.price}</p>
+            <p className={styles.price}>{product.price}</p>
         </div>
     )
 }

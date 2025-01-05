@@ -66,6 +66,11 @@
     top: 1rem;
 }
 
+.hamburger:focus {
+    outline: 2px solid #FFD700;
+    outline-offset: 4px;
+}
+
 .hamburger span {
     display: block;
     width: 30px;
@@ -105,6 +110,7 @@
     } 
 
     .navList {
+        display: flex;
         flex-direction: row;
     }
 

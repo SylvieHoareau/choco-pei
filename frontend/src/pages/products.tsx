@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
 import { Product } from "@/types/product";
+import styles from "@/pages/products.module.css";
+import '@/styles/globals.css';
 
 const products: Product[] = [
     {
@@ -33,7 +35,7 @@ const Products: React.FC = () => {
         <Navbar />
         <main>
             <h1>Nos produits</h1>
-            <div>
+            <div className={styles.cardContainer}>
                 {products.map(product => (
                     <ProductCard key={product.id} product={product} />
                 ))}

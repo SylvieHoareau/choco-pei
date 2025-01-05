@@ -1,0 +1,120 @@
+.hero {
+    background-image: url('https://img.freepik.com/photos-gratuite/vue-dessus-pamplemousses-tranches-barres-choco-sol-sombre_140725-13719.jpg?t=st=1736079453~exp=1736083053~hmac=49ac8200c4b57499a251ff32991ae20792ad101f8ed80af102494db7d56440f8&w=1380');
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: #FFD700;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(92, 64, 51, 0.6);
+}
+
+.heroContent {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.ctaButton {
+    background-color: #FFD700;
+    color: #5C4033;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.ctaButton:hover {
+    background-color: #FFC107;
+    transform: translateY(-2px);
+}
+
+/* Section Avis Clients */
+.testimonials {
+    padding: 4rem 2rem;
+    background-color: #F8F2E1;
+    text-align: center;
+}
+
+.testimonials h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #4C2A1D;
+}
+
+.testimonialGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.testimonial {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial p {
+    font-size: 1.1rem;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 1rem;
+}
+
+.testimonial span {
+    display: block;
+    font-weight: bold;
+    color: #5C4033;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Section "Call To Action" */
+.cta {
+    padding: 4rem 2rem;
+    background-color: #5C4033;
+    text-align: center;
+    color: #FFD700;
+}
+
+/* Responsive pour grand écrans */
+@media (min-width: 768px) {
+    /* Adaptation de la mise en page */
+   .hero h1 {
+        font-size: 4rem;
+   }
+
+   .hero p {
+        font-size: 1.8rem;
+   }
+
+   .cta h2 {
+        font-size: 3rem;
+   }
+
+   .testimonials .testimonialGrid {
+        flex-direction: row;
+   }
+}
