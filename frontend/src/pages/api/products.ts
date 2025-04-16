@@ -24,6 +24,13 @@ const products: Product[] = [
         image: "https://img.freepik.com/photos-gratuite/vue-laterale-bonbons-au-chocolat-decores-dans-boite-or-noir_140725-13998.jpg?t=st=1736057485~exp=1736061085~hmac=f371477f8796f6d997f3acc8f433273903689c90ea646e8e875943124668de06&w=740",
         description: "Un coffret parfait pour les amateurs de chocolat."
     },
+    {
+        id: 4,
+        name: "Roses en chocolat",
+        price: "30€",
+        image: "https://images.unsplash.com/photo-1718915879717-a5590d676681?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTY0fHxjaG9jb2xhdCUyMGx1eGV8ZW58MHwxfDB8fHwy",
+        description: "Des roses gourmandes aux épices orientales"
+    }
 ]
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

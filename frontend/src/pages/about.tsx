@@ -17,29 +17,54 @@ const About: React.FC = () => {
             
             <section className={styles.history}>
                 <h2>Notre histoire</h2>
-                <p>
-                    Fondée en 2015, Choco Pei est née d'une passion pour le chocolat de qualité
-                    et les trésors gistatifs uniques de La Réunion. Chaque produit est élaboré avec soin,
-                    à partir d'ingrédients locaux et durables.
-                </p>
+                
+                <div className={styles.container}>
+                    <img 
+                        src="https://images.unsplash.com/photo-1648754414700-b58a4719a686?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                        alt="Chocolat posé sur un livre noir avec des dorures"
+                        className={styles.image}
+                    />
+                    <p className={styles.description}>
+                        Fondée en 2015, Choco Pei est née d'une passion pour le chocolat de qualité
+                        et les trésors gistatifs uniques de La Réunion. Chaque produit est élaboré avec soin,
+                        à partir d'ingrédients locaux et durables.
+                    </p>
+                </div>
+                
             </section>
 
             <section className={styles.team}>
                 <h2>Notre équipe</h2>
-                <p>
-                    Derrière chaque chocolat se trouve une équipe de maîtres chocolatiers,
-                    artistes du goût, et amoureux des traditions culinaires. Ensemble,
-                    nous créons des expériences gourmandes inoubliables.
-                </p>
+                <div className={styles.container}>
+                    <p className={styles.description}>
+                        Derrière chaque chocolat se trouve une équipe de maîtres chocolatiers,
+                        artistes du goût, et amoureux des traditions culinaires. Ensemble,
+                        nous créons des expériences gourmandes inoubliables.
+                    </p>
+
+                    <img 
+                        src="https://images.unsplash.com/photo-1645628493481-4ed1a440321e?q=80&w=986&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                        alt="Chocolatier démoulant des chocolats avec des gants"
+                        className={styles.image}
+                    />
+                </div>
+                
             </section>
 
             <section className={styles.values}>
                 <h2>Nos valeurs</h2>
-                <ul>
-                    <li>Respect de l'environnement</li>
-                    <li>Artisanat et savoir-faire</li>
-                    <li>Soutien aux producteurs locaux</li>
-                </ul>
+                <div className={styles.container}>
+                    <img 
+                            src="https://images.unsplash.com/photo-1647607223701-52bb084d3953?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                            alt="Chocolatier démoulant des chocolats avec des gants"
+                            className={styles.image}
+                        />
+                    <ul>
+                        <li>Respect de l'environnement</li>
+                        <li>Artisanat et savoir-faire</li>
+                        <li>Soutien aux producteurs locaux</li>
+                    </ul>
+                </div>
             </section>
         </main>
         <Footer />
