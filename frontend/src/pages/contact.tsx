@@ -68,17 +68,18 @@ const Contact: React.FC = () => {
 
                         <label htmlFor="email">Email : </label>
                         <input 
-                            type="text" 
                             id="email" 
                             name="email"
+                            type="email"
+                            aria-describedby="email-help" 
                             value={formData.email}
                             onChange={handleChange}
                             required
                         />
+                        <small id="email-help">Votre adresse ne sera jamais partagée.</small>
 
                         <label htmlFor="message">Message : </label>
-                        <input 
-                            type="text" 
+                        <textarea  
                             id="message" 
                             name="message"
                             value={formData.message}
@@ -86,12 +87,16 @@ const Contact: React.FC = () => {
                             required
                         />
 
-                        <label htmlFor="">
-                            <input type="checkbox" required/>
+                        <input 
+                            type="checkbox" 
+                            id="privacy"
+                            name="privacy"
+                            required
+                        />
+                        <label htmlFor="privacy">
                             J'accepte la <Link href="/privacy-policy">Politique de confidentialité</Link>
                         </label>
 
-                    
                         <button type="submit" className={styles.submitButton} disabled={status === "loading"}>
                             {status === "loading" ? "Envoi en cours..." : "Envoyer"}
                         </button>

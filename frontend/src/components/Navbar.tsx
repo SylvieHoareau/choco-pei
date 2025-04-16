@@ -13,7 +13,9 @@ const Navbar: React.FC = () => {
     return (
         <nav className={styles.nav}>
             <div>
-                <h1>Choco Péi</h1>
+                <Link href="/" className={styles.title}>
+                    <h1>Choco Péi</h1>
+                </Link>
             </div>
 
             {/* Icône du hamburger, visible sur mobile */}
