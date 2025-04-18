@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import styles from '@/pages/index.module.css';
+import styles from '@/styles/index.module.css';
 
 const Home: React.FC = () => {
     return (

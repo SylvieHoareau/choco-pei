@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import styles from '@/pages/privacy-policy.module.css';
+import styles from '@/styles/privacy-policy.module.css';
 
 const Mentions: React.FC = () => {
     return (
@@ -47,7 +47,7 @@ const Mentions: React.FC = () => {
                         Conformément à la rgélementation sur la protection des données personnelles, nous collectons et traitons les informations nécessaires à l'utilisation de notre site, telles que les informations de contact 
                     </p>
                     <p>
-                        Vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition aux données personnelles vous concernant, que vous pouvez exercer en nous contactant par email à  [email@example.com].
+                        Vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition aux données personnelles vous concernant, que vous pouvez exercer en nous contactant par email à  <a href="mailto:email@example.com">email@example.com</a>.
                     </p>
                     <p>
                         Nous utilisons également des cookies pour améliorer votre expérience utilisateur. Pour plus d'informations, consultez notre politique de confidentialité. 

@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import styles from '@/pages/privacy-policy.module.css';
+import styles from '@/styles/privacy-policy.module.css';
 
 const PrivacyPolicy: React.FC = () => {
     return (

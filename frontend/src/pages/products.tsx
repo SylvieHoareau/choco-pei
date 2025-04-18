@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ProductCard from "@/components/ProductCard";
 import { Product } from "@/types/product";
-import styles from "@/pages/products.module.css";
+import styles from "@/styles/products.module.css";
 
 const Products: React.FC = () => {
     const [products, setProducts] = useState<Product[]>([]);

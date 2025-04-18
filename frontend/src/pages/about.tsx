@@ -1,6 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import styles from "@/pages/about.module.css";
+import styles from "@/styles/about.module.css";
 
 const About: React.FC = () => {
     return (

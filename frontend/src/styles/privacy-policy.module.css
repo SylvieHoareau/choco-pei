@@ -40,6 +40,11 @@
     outline-offset: 4px;
 }
 
+.section a:focus-visible {
+    outline: 3px solid #ff9800;
+    outline-offset: 3px;
+}
+
 /* Style pour les écrans de tablettes */
 @media (min-width: 768px) {
     .main {
