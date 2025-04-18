@@ -11,7 +11,7 @@
 
 🔗 [Démo en ligne sur Vercel](https://choco-pei.vercel.app)
 
-![Screenshot du site](./public/images/Screenshot_Choco_Pei.png)
+![Screenshot du site](./frontend/public/images/Screenshot_Choco_Pei.png)
 
 ---
 
