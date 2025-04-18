@@ -1,0 +1,67 @@
+/* Mobile First */
+
+.main {
+    padding: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #1a1a1a;
+    background-color: #fff;
+}
+
+.main h1, 
+.main h2 {
+    color: #3a2c00;
+    font-weight: 700;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.main h1 {
+    font-size: 2rem;
+}
+
+.main h2 {
+    font-size: 1.5rem;
+}
+
+.section {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.section a {
+    color: #005fcc;
+    text-decoration: underline;
+}
+
+.section a:focus, .section a:hover {
+    outline: 2px dashed #005fcc;
+    outline-offset: 4px;
+}
+
+/* Style pour les écrans de tablettes */
+@media (min-width: 768px) {
+    .main {
+        padding: 2rem;
+        font-size: 1.125rem;
+    }
+
+    .main h1 {
+        font-size: 2.5rem;
+    }
+
+    .main h2 {
+        font-size: 2rem;
+    }
+
+}
+
+/* Style pour les écrans d'ordinateurs */
+@media (min-width: 1024px) {
+    .main {
+        padding: 3rem 4rem;
+        max-width: 960px;
+        margin: 0 auto;
+    }
+}
