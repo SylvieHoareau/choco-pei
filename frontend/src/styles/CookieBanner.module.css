@@ -1,0 +1,37 @@
+/* CookieBanner.module.css */
+
+.cookieBanner {
+    background-color: #3e2723; /* chocolat noir */
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    padding: 1rem;
+  }
+  
+  .cookieButton {
+    background-color: #ffd700; /* jaune doré */
+    color: #3e2723;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .cookieDecline {
+    background-color: #5C4033; /* marron cacao */
+    color: #fff;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .cookieLink {
+    color: #ffd700;
+    text-decoration: underline;
+    margin-left: 0.5rem;
+  }
+  

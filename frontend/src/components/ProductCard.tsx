@@ -1,5 +1,5 @@
 import { Product } from '../types/product';
-import styles from '@/components/ProductCard.module.css';
+import styles from '@/styles/ProductCard.module.css';
 
 interface ProductCardProps {
     product: Product;
@@ -7,12 +7,23 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     return (
-        <div className={styles.card}>
-            <img src={product.image} alt={product.name} className={styles.image}/>
-            <h3>{product.name}</h3>
-            <p>{product.description}</p>
-            <p className={styles.price}>{product.price}</p>
-        </div>
+        <article 
+            className={styles.card}
+            tabIndex={0}
+            aria-label={`Produit : ${product.name}`}
+        >
+            <img 
+                src={product.image} 
+                alt={product.name} 
+                className={styles.image}
+                loading="lazy"
+            />
+            <h3 className={styles.name}>{product.name}</h3>
+            <p className={styles.description}>{product.description}</p>
+            <p className={styles.price} aria-label={`Prix: ${product.price}`}>
+                {product.price}
+            </p>
+        </article>
     )
 }
 
