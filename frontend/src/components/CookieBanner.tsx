@@ -34,31 +34,33 @@ const CookieBanner: React.FC = () => {
     }, []); 
 
     return (
-        <CookieConsent
-            role="dialog"
-            ariaLabel="Bannière de consentement aux cookies"
-            location="bottom"
-            buttonText="Accepter"
-            declineButtonText="Refuser"
-            cookieName="chocopei-consent"
-            expires={30}
-            enableDeclineButton
-            onAccept={() => {
-                console.log("Consentement accepté");
-                enableGA();
-            }}
-            onDecline={() => {
-                console.log("Consentement refusé");
-                // Supprimer tous les cookies non essentiels
-            }}
-            containerClasses={styles.cookieBanner}
-            declineButtonClasses={styles.cookieDecline}
-        >
-            Nous utilisons des cookies pour améliorer votre expérience et fournir des services de meilleure qualité. En continuant à utiliser notre site, vous acceptez cela.
-            <Link to="/privacy-policy" className={styles.cookieLink}>
+        <div role="dialog" aria-label="Bannière de consentement aux cookies">
+            <CookieConsent
+                location="bottom"
+                buttonText="Accepter"
+                declineButtonText="Refuser"
+                cookieName="chocopei-consent"
+                expires={365}
+                enableDeclineButton={true}
+                onAccept={() => {
+                    console.log("Consentement accepté");
+                    enableGA();
+                }}
+                onDecline={() => {
+                    console.log("Consentement refusé");
+                    // Supprimer tous les cookies non essentiels
+                }}
+                containerClasses={styles.cookieBanner}
+                declineButtonClasses={styles.cookieDecline}
+            >
+                Nous utilisons des cookies pour améliorer votre expérience et fournir des services de meilleure qualité. En continuant à utiliser notre site, vous acceptez cela.
+              
+            </CookieConsent>
+            <Link href="/privacy-policy" className={styles.cookieLink}>
                 En savoir plus
             </Link>
-        </CookieConsent>
+        </div>
+       
     )
 };
 
