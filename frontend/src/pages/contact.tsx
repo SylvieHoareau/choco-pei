@@ -1,54 +1,39 @@
-import { useState } from "react";
 import Link from "next/link";
+import { useForm, ValidationError } from "@formspree/react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import styles from "../styles/contact.module.css";
 
 const Contact: React.FC = () => {
+
+    const formKey = process.env.NEXT_PUBLIC_FORMSPREE_KEY || "";
+    const [state, handleSubmit] = useForm(formKey);
+
+    if (!process.env.NEXT_PUBLIC_FORMSPREE_KEY) {
+        console.error("La clé Formspree manque. Vérifiez vos variables d&apos;environnement.");
+        return (
+            <div className={styles.successMessage}>
+                <Navbar />
+                <main className={styles.mainContainer}>
+                    <p>Formulaire indisponible pour le moment.</p>
+                </main>
+                <Footer />
+            </div>
+        );
+    }
     
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        message: ''
-    });
-
-    const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-    const [errorMessage, setErrorMessage] = useState('');
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => 
-    {
-        const { name, value} = e.target;
-        setFormData({...formData, [name]: value });
-    };
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setStatus("loading");
-        setErrorMessage('');
-
-        try {
-            const response = await fetch('/api/contact', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
-
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-
-            setStatus("success");
-        } catch (error) {
-            setStatus("error");
-            if (error instanceof Error) {
-                setErrorMessage(error.message);
-            } else {
-                setErrorMessage("Une erreur inconnue s'est produite.");
-            }
-        }
-    };
+    if (state.succeeded) {
+        return (
+            <div className={styles.successMessage}>
+                <Navbar />
+                <main className={styles.mainContainer}>
+                    <h1>Merci pour votre message !</h1>
+                    <p>Nous vous répondrons dans les plus brefs délais.</p>
+                </main>
+                <Footer />
+            </div>
+        );
+    }
     return (
         <>
             <Navbar />
@@ -61,8 +46,6 @@ const Contact: React.FC = () => {
                             type="text" 
                             id="name" 
                             name="name"
-                            value={formData.name}
-                            onChange={handleChange}
                             required
                         />
 
@@ -72,18 +55,19 @@ const Contact: React.FC = () => {
                             name="email"
                             type="email"
                             aria-describedby="email-help" 
-                            value={formData.email}
-                            onChange={handleChange}
                             required
                         />
+                        <ValidationError
+                            prefix="Email"
+                            field="email"
+                            errors={state.errors}
+                         />
                         <small id="email-help">Votre adresse ne sera jamais partagée.</small>
 
                         <label htmlFor="message">Message : </label>
                         <textarea  
                             id="message" 
                             name="message"
-                            value={formData.message}
-                            onChange={handleChange}
                             required
                         />
 
@@ -97,21 +81,16 @@ const Contact: React.FC = () => {
                             J&apos;accepte la <Link href="/privacy-policy">Politique de confidentialité</Link>
                         </label>
 
-                        <button type="submit" className={styles.submitButton} disabled={status === "loading"}>
-                            {status === "loading" ? "Envoi en cours..." : "Envoyer"}
+                        <button type="submit" className={styles.submitButton} disabled={state.submitting}>
+                            Envoyer
                         </button>
 
-                        {status === "success" && (
-                            <p aria-live="polite" className={styles.success}>Merci pour votre message !</p>
+                        {state.errors && Object.keys(state.errors).length > 0 && (
+                            <p className={styles.errorMessage}>Une erreur est survenue. Veuillez réessayer.</p>
                         )}
-                        {status === "error" && (
-                            <p aria-live="polite" className={styles.error}>
-                                Erreur : {errorMessage}
-                            </p>
-                        )}
+
                     </form>
                 </div>
-                
             </main>
             <Footer />
         </>

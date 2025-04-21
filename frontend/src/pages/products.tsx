@@ -2,21 +2,18 @@ import { useEffect, useState } from 'react';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ProductCard from "../components/ProductCard";
+import { GetStaticProps } from 'next';
 import { Product } from "../types/product";
+import { products } from "../data/products";
 import styles from "../styles/products.module.css";
 
-const Products: React.FC = () => {
-    const [products, setProducts] = useState<Product[]>([]);
+// Typage des props
+interface ProductsPageProps {
+    products: Product[];
+}
 
-    useEffect(() => {
-        const fetchProducts = async () => {
-            const res = await fetch('/api/products');
-            const data = await res.json();
-            setProducts(data);
-        };
-        fetchProducts();
-    }, []);
-
+const Products: React.FC<ProductsPageProps> = ({ products }) => {
+   
     return (
         <>
             <Navbar />
@@ -31,6 +28,14 @@ const Products: React.FC = () => {
             <Footer />
         </>
     )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+    return {
+        props: {
+            products
+        }
+    }
 }
 
 export default Products;
