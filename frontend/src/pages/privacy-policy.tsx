@@ -39,10 +39,10 @@ const PrivacyPolicy: React.FC = () => {
                 <h2>4. Vos droits</h2>
                 <p>Conformément au RGPD et à la législation applicable, vous disposez</p>
                 <ul>
-                    <li><strong>Droit d'accès : </strong>Voud pouvez demander une copie des données personnelles que nous détenons à votre sujet.</li>
+                    <li><strong>Droit d&apos;accès : </strong>Voud pouvez demander une copie des données personnelles que nous détenons à votre sujet.</li>
                     <li><strong>Droit de rectification : </strong>Vous pouvez demander la correction de données inexactes ou incomplètes.</li>
-                    <li><strong>Droit à l'effacement: </strong>Vous pouvez demander la suppression de vos données personnelles, sauf si leur conservation est nécessaire pour des raisons légales.</li>
-                    <li><strong>Droit d'opposition : </strong>Vous pouvez vous opposer au traitement de vos données à des fins marketing ou pour des intérêts légitimes.</li>
+                    <li><strong>Droit à l&apos;effacement: </strong>Vous pouvez demander la suppression de vos données personnelles, sauf si leur conservation est nécessaire pour des raisons légales.</li>
+                    <li><strong>Droit d&apos;opposition : </strong>Vous pouvez vous opposer au traitement de vos données à des fins marketing ou pour des intérêts légitimes.</li>
                     <li><strong>Droit à la portabilité : </strong>Vous pouvez demander à recevoir vos données dans un format structuré, couramment utilisé et lisible par machine.</li>
                 </ul>
                 <p>
@@ -72,7 +72,7 @@ const PrivacyPolicy: React.FC = () => {
 
                 <address>
                     <strong>Choco Péi</strong><br />
-                    Adresse : [Adresse de l'entreprise]<br />
+                    Adresse : [Adresse de l&apos;entreprise]<br />
                     [Code postal] [Ville]<br />
                     Téléphone : [Téléphone]<br />
                     Email : [Email]

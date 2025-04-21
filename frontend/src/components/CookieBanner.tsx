@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import CookieConsent from "react-cookie-consent";
 import Cookie from "js-cookie";
+import Link from "next/link";
 import styles from '../styles/CookieBanner.module.css';
 
 const CookieBanner: React.FC = () => {
@@ -54,9 +55,9 @@ const CookieBanner: React.FC = () => {
             declineButtonClasses={styles.cookieDecline}
         >
             Nous utilisons des cookies pour améliorer votre expérience et fournir des services de meilleure qualité. En continuant à utiliser notre site, vous acceptez cela.
-            <a href="/privacy-policy" className={styles.cookieLink}>
+            <Link to="/privacy-policy" className={styles.cookieLink}>
                 En savoir plus
-            </a>
+            </Link>
         </CookieConsent>
     )
 };

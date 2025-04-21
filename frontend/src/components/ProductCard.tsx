@@ -1,4 +1,5 @@
 import { Product } from '../types/product';
+import Image from 'next/image';
 import styles from '@/styles/ProductCard.module.css';
 
 interface ProductCardProps {
@@ -12,10 +13,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             tabIndex={0}
             aria-label={`Produit : ${product.name}`}
         >
-            <img 
+            <Image 
                 src={product.image} 
                 alt={product.name} 
                 className={styles.image}
+                width={300}
+                height={300}
                 loading="lazy"
             />
             <h3 className={styles.name}>{product.name}</h3>

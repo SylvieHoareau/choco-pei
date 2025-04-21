@@ -94,7 +94,7 @@ const Contact: React.FC = () => {
                             required
                         />
                         <label htmlFor="privacy">
-                            J'accepte la <Link href="/privacy-policy">Politique de confidentialité</Link>
+                            J&apos;accepte la <Link href="/privacy-policy">Politique de confidentialité</Link>
                         </label>
 
                         <button type="submit" className={styles.submitButton} disabled={status === "loading"}>

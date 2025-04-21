@@ -9,7 +9,7 @@ const Home: React.FC = () => {
             <Navbar />
             <header className={styles.hero}>
                 <div className={styles.heroContent}>
-                    <h1>Découvrez nos chocolats d'exception</h1>
+                    <h1>Découvrez nos chocolats d&apos;exception</h1>
                     <p>Un voyage gustatif au coeur du cacao et des saveurs tropicales.</p>
                     <Link href="/products" className={styles.ctaButton}>Explorez nos produits</Link>
                 </div>
