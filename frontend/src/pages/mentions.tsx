@@ -1,6 +1,6 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import styles from '@/styles/privacy-policy.module.css';
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import styles from '../styles/privacy-policy.module.css';
 
 const Mentions: React.FC = () => {
     return (

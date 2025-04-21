@@ -1,8 +1,8 @@
 import { useState } from "react";
 import Link from "next/link";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import styles from "@/styles/contact.module.css";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import styles from "../styles/contact.module.css";
 
 const Contact: React.FC = () => {
     

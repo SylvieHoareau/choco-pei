@@ -1,7 +1,7 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import Image from 'next/image';
-import styles from "@/styles/about.module.css";
+import styles from "../styles/about.module.css";
 
 const About: React.FC = () => {
     return (

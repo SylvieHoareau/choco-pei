@@ -1,6 +1,6 @@
 import { Product } from '../types/product';
 import Image from 'next/image';
-import styles from '@/styles/ProductCard.module.css';
+import styles from '../styles/ProductCard.module.css';
 
 interface ProductCardProps {
     product: Product;
