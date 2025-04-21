@@ -1,67 +1,45 @@
-import { useEffect } from "react";
-import CookieConsent from "react-cookie-consent";
-import Cookie from "js-cookie";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 import styles from '../styles/CookieBanner.module.css';
 
 const CookieBanner: React.FC = () => {
 
-    const enableGA = () => {
-        if (typeof window === "undefined") return;
+    const [visible, setVisible] = useState(false);
 
-        // Injecter le script de GA
-        const script1 = document.createElement("script");
-        script1.async = true;
-        script1.src = "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"; // remplace avec ton ID
-        document.head.appendChild(script1);
+    useEffect(() => {
+        const consent = localStorage.getItem("chocopei-consent");
+        if (!consent) {
+        setVisible(true);
+        }
+    }, []);
 
-        const script2 = document.createElement("script");
-        script2.innerHTML = `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX');
-        `;
-        document.head.appendChild(script2);
+    const handleAccept = () => {
+        localStorage.setItem("chocopei-consent", "accepted");
+        setVisible(false);
+        console.log("Consentement accepté");
+        // Tu peux ici initialiser Google Analytics ou tout autre outil
     };
 
-    // Si le consentement a déjà été donné, on active GA
-    useEffect(() => {
-        const consent = Cookie.get("chocopei-consent");
-        if (consent === "true") {
-            enableGA();
-        }
-    }, []); 
+    const handleDecline = () => {
+        localStorage.setItem("chocopei-consent", "declined");
+        setVisible(false);
+        console.log("Consentement refusé");
+        // Tu peux ici bloquer les scripts de tracking
+    };
+
+    if (!visible) return null;
 
     return (
-        <div role="dialog" aria-label="Bannière de consentement aux cookies">
-            <CookieConsent
-                location="bottom"
-                buttonText="Accepter"
-                declineButtonText="Refuser"
-                cookieName="chocopei-consent"
-                expires={365}
-                enableDeclineButton={true}
-                onAccept={() => {
-                    console.log("Consentement accepté");
-                    enableGA();
-                }}
-                onDecline={() => {
-                    console.log("Consentement refusé");
-                    // Supprimer tous les cookies non essentiels
-                }}
-                containerClasses={styles.cookieBanner}
-                declineButtonClasses={styles.cookieDecline}
-            >
-                Nous utilisons des cookies pour améliorer votre expérience et fournir des services de meilleure qualité. En continuant à utiliser notre site, vous acceptez cela.
-              
-            </CookieConsent>
-            <Link href="/privacy-policy" className={styles.cookieLink}>
-                En savoir plus
-            </Link>
+        <div className={styles.banner}>
+            <p className={styles.text}>
+                Nous utilisons des cookies pour améliorer votre expérience. En
+                continuant, vous acceptez notre politique de confidentialité.
+            </p>
+            <div className={styles.buttons}>
+                <button className={styles.accept} onClick={handleAccept}>Accepter</button>
+                <button className={styles.decline} onClick={handleDecline}>Refuser</button>
+            </div>
         </div>
-       
-    )
+    );
 };
 
 export default CookieBanner;
