@@ -45,7 +45,7 @@ const About: React.FC = () => {
                     </p>
 
                     <img 
-                        src="https://images.unsplash.com/photo-1645628493481-4ed1a440321e?q=80&w=986&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                        src="/images/equipe.jpg" 
                         alt="Chocolatier démoulant des chocolats avec des gants"
                         className={styles.image}
                         width={300}
@@ -59,7 +59,7 @@ const About: React.FC = () => {
                 <h2>Nos valeurs</h2>
                 <div className={styles.container}>
                     <img 
-                            src="https://images.unsplash.com/photo-1647607223701-52bb084d3953?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+                            src="/images/valeurs.jpg" 
                             alt="Chocolatier démoulant des chocolats avec des gants"
                             className={styles.image}
                             width={300}
