@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Product } from '../types/product';
 import styles from '../styles/ProductCard.module.css';
 
@@ -13,7 +14,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             aria-label={`Produit : ${product.name}`}
         >
             {product.image ? (
-                <img 
+                <Image 
                     src= {product.image}
                     alt={product.name} 
                     className={styles.image}

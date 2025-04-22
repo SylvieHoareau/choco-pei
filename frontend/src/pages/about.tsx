@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import styles from "../styles/about.module.css";
@@ -19,7 +20,7 @@ const About: React.FC = () => {
                 <h2>Notre histoire</h2>
                 
                 <div className={styles.container}>
-                    <img 
+                    <Image 
                         src="https://images.unsplash.com/photo-1648754414700-b58a4719a686?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
                         alt="Chocolat posé sur un livre noir avec des dorures"
                         className={styles.image}
@@ -44,7 +45,7 @@ const About: React.FC = () => {
                         nous créons des expériences gourmandes inoubliables.
                     </p>
 
-                    <img 
+                    <Image 
                         src="/images/equipe.jpg" 
                         alt="Chocolatier démoulant des chocolats avec des gants"
                         className={styles.image}
@@ -58,7 +59,7 @@ const About: React.FC = () => {
             <section className={styles.values}>
                 <h2>Nos valeurs</h2>
                 <div className={styles.container}>
-                    <img 
+                    <Image 
                             src="/images/valeurs.jpg" 
                             alt="Trésor avec des pièces en or"
                             className={styles.image}
