@@ -24,20 +24,14 @@ const securityHeaders = [
   {
     key: "Referrer-Policy",
     value: "no-referrer"
-  },
-  {
-    key: "Cache-Control",
-    value: "public, max-age=31536000, immutable"
   }
 ]
 
 const nextConfig: NextConfig = {
   /* config options here */
+  output: "export",
   images: {
-    domains: [
-      'images.unsplash.com',
-      'img.freepik.com'
-    ],
+    unoptimized: true,
   },
 
   async headers() {
@@ -45,6 +39,15 @@ const nextConfig: NextConfig = {
       {
         source: "/(.*)",
         headers: securityHeaders,
+      },
+      {
+        source: "/_next/static/(.*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
       },
     ];
   }

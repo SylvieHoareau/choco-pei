@@ -19,9 +19,14 @@ const Products: React.FC<ProductsPageProps> = ({ products }) => {
             <main>
                 <h1 className={styles.productsTitle}>Nos produits</h1>
                 <div className={styles.cardContainer}>
-                    {products.map(product => (
-                        <ProductCard key={product.id} product={product} />
-                    ))}
+                    {products?.length > 0 ? (
+                        products.map(product => (
+                            <ProductCard key={product.id} product={product} />
+                        ))
+                        ) :(
+                            <p>Aucun produit disponible</p>
+                        )
+                    }
                 </div>
             </main>
             <Footer />

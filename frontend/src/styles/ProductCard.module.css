@@ -46,3 +46,9 @@
     transform: scale(1.05);
     transition: transform 0.3s ease;
 }
+
+.imagePlaceholder {
+    height: 300px;
+    width: 300px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
