@@ -29,8 +29,8 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   /* config options here */
-  output: "export",
   images: {
+    domains: ['images.unsplash.com'], // Autorise ce domaine pour les images
     unoptimized: true,
   },
 
