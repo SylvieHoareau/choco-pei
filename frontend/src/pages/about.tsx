@@ -60,7 +60,7 @@ const About: React.FC = () => {
                 <div className={styles.container}>
                     <img 
                             src="/images/valeurs.jpg" 
-                            alt="Chocolatier démoulant des chocolats avec des gants"
+                            alt="Trésor avec des pièces en or"
                             className={styles.image}
                             width={300}
                             height={300}
