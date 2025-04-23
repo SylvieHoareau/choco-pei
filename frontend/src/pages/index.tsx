@@ -7,6 +7,8 @@ const Home: React.FC = () => {
     return (
         <>
             <Navbar />
+
+            {/* Contenu principal de la page d'accueil */}
             <header className={styles.hero}>
                 <div className={styles.heroContent}>
                     <h1>Découvrez nos chocolats d&apos;exception</h1>
