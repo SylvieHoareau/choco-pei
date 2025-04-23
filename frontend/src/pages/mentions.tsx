@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import styles from "../styles/privacy-policy.module.css";
+import styles from "../styles/mentions.module.css";
 
 const Mentions: React.FC = () => {
   return (
@@ -8,38 +8,38 @@ const Mentions: React.FC = () => {
       <Navbar />
       <main className={styles.main} id="main-content" role="main">
         <header className={styles.header}>
-          <h1 tabIndex={-1}>Mentions Légales</h1>
+          <h1>Mentions Légales</h1>
         </header>
 
         <section className={styles.section} aria-labelledby="editeur">
           <h2 id="editeur">Editeur du site</h2>
           <p>
-            Le site{"Chocopéi"}
+            Le site{" "}
             <a
               href="https://www.chocopei.com"
               target="_blank"
               rel="noopener noreferrer"
             >
               www.chocopei.com
-            </a>{"Chocopéi"}
+            </a>{" "}
             est édité par <strong>Choco Péi</strong>, société à responsabilité
-            limitée (SARL) au capital de [X] euros, immatriculée au registre du
+            limitée (SARL) au capital de 5000 euros, immatriculée au registre du
             commerce et des société sous le numéro SIRET
           </p>
           <address>
-            Siège social: [Adresse de l&apos;entreprise] Responsable de
-            publication : [Nom du responsable]
+            Siège social: 123 rue du chocolat <br></br> 
+            Responsable de publication : M. Carly CHAPLIN
             <a href="mailto:email@example.com">email@example.com</a>
-            <a href="tel:[numéro de téléphone]">[numéro de téléphone]</a>
+            <a href="tel:+12 345 67 89 00">+12 34 56 78 90</a>
           </address>
         </section>
 
         <section className={styles.section} aria-labelledby="hebergeur">
           <h2 id="hebergeur">Hébergeur</h2>
           <p>
-            Le site est hébergé par [Nom de l&apos;hébergeur], situé à [adresse
-            de l&apos;hébergeur], téléphone:{" "}
-            <a href="tel:[numéro de téléphone]">[numéro de téléphone]</a>
+            Le site est hébergé par Vercel, situé à Vercel Inc, 650 California St, San Francisco, CA 94108, États-Unis, 
+            téléphone:{" "}
+            <a href="tel:06 31 07 34 26">06 31 07 34 26</a>
           </p>
         </section>
 
