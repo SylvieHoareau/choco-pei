@@ -39,10 +39,26 @@ const Navbar: React.FC = () => {
 
             {/* Liste de navigation, cachée ou non en fonction du menu */}
             <ul className={`${styles.navList} ${isMenuOpen ? styles.show : ''}`}>
-                <li className={styles.navItem}><Link href="/" className={styles.navLink}>Accueil</Link></li>
-                <li className={styles.navItem}><Link href="/about" className={styles.navLink}>A propos</Link></li>
-                <li className={styles.navItem}><Link href="/products" className={styles.navLink}>Produits</Link></li>
-                <li className={styles.navItem}><Link href="/contact" className={styles.navLink}>Contact</Link></li>
+                <li className={styles.navItem}>
+                    <Link href="/" className={styles.navLink}>
+                        Accueil
+                    </Link>
+                </li>
+                <li className={styles.navItem}>
+                    <Link href="/about" className={styles.navLink}>
+                        A propos
+                    </Link>
+                </li>
+                <li className={styles.navItem}>
+                    <Link href="/products" className={styles.navLink}>
+                        Produits
+                    </Link>
+                </li>
+                <li className={styles.navItem}>
+                    <Link href="/contact" className={styles.navLink}>
+                        Contact
+                    </Link>
+                </li>
             </ul>
         </nav>
     )

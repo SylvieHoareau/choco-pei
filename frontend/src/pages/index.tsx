@@ -13,7 +13,9 @@ const Home: React.FC = () => {
                 <div className={styles.heroContent}>
                     <h1>Découvrez nos chocolats d&apos;exception</h1>
                     <p>Un voyage gustatif au coeur du cacao et des saveurs tropicales.</p>
-                    <Link href="/products" className={styles.ctaButton}>Explorez nos produits</Link>
+                    <Link href="/products" className={styles.ctaButton}>
+                        Explorez nos produits
+                    </Link>
                 </div>
             </header>
             <section className={styles.testimonials}>
@@ -31,7 +33,9 @@ const Home: React.FC = () => {
             </section>
             <section className={styles.cta}>
                 <h2>Prêt pour une dégustation</h2>
-                <Link href="/contact" className={styles.ctaButton}>Contactez-nous</Link>
+                <Link href="/contact" className={styles.ctaButton}>
+                    Contactez-nous
+                </Link>
             </section>
             <Footer />
         </>
