@@ -27,6 +27,7 @@
     color: #FFD700;
 }
 
+/* Menu déroulant */
 .navList {
     list-style: none;
     display: flex;
@@ -41,11 +42,11 @@
 }
 
 /* Style des éléments de navigation */
-.navItem{
+.navItem {
     margin: 0.5rem 0;
 }
 
-.navLink {
+.navItem a {
     color: #FFD700;
     text-decoration: none;
     font-weight: bold;
@@ -56,13 +57,13 @@
 }
 
 /* Survol de la navbar */
-.navLink:hover {
+.navItem a:hover {
     background-color: #4c2a1d;
     text-decoration: underline;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.navLink:focus {
+.navItem a:focus {
     outline: 2px solid #FFD700;
     outline-offset: 4px;
 }
@@ -90,7 +91,7 @@
     height: 3px;
     background-color: #FFD700;
     margin: 6px 0;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: all 0.3s ease-in-out;
 }
 
 /* Transformation de l'icône hamburger en croix */

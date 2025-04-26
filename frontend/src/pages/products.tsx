@@ -1,9 +1,10 @@
+'use client';
+
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ProductCard from "../components/ProductCard";
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import { Product } from "../types/product";
-import { products } from "../data/products";
 import styles from "../styles/products.module.css";
 
 // Typage des props
@@ -34,7 +35,20 @@ const Products: React.FC<ProductsPageProps> = ({ products }) => {
     )
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    const mock = context.query.mock;
+
+    let products: Product[] = [];
+
+    if (mock === 'empty') {
+        // Cas sépcial pour les tests -> aucun produit
+        products = [];
+    } else {
+        // Appel à l'API pour récupérer les produits
+        const res = await fetch('http://localhost:3000/api/products');
+        products = await res.json();
+    }
+    
     return {
         props: {
             products

@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 import Link from 'next/link';
 import styles from '../styles/Navbar.module.css';
@@ -5,20 +7,27 @@ import styles from '../styles/Navbar.module.css';
 const Navbar: React.FC = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    // Fonction pour ouvrir/fermer le menu
     const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    }
+        setIsMenuOpen((prev) => !prev);
+    };
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            toggleMenu();
+        }
+    };
 
     return (
-        <nav className={styles.nav}>
-            <div>
+        <nav 
+            className={styles.nav} 
+            aria-label="Navigation principale"
+        >
+            <div className={styles.logo}>
                 <Link href="/" className={styles.title}>
                     <h1>Choco Péi</h1>
                 </Link>
             </div>
 
-            {/* Icône du hamburger, visible sur mobile */}
             <div 
                 className={`${styles.hamburger} ${isMenuOpen ? styles.open : ''}`} 
                 onClick={toggleMenu} 
@@ -26,19 +35,18 @@ const Navbar: React.FC = () => {
                 aria-expanded={isMenuOpen}
                 role="button"
                 tabIndex={0}
-                onKeyPress={(e) => {
-                    if (e.key === 'Enter' || e.key === ' ') {
-                        toggleMenu();
-                    }
-                }}
+                onKeyDown={handleKeyDown}
             >
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
 
-            {/* Liste de navigation, cachée ou non en fonction du menu */}
-            <ul className={`${styles.navList} ${isMenuOpen ? styles.show : ''}`}>
+            <ul 
+                className={styles.navList} 
+                aria-hidden={!isMenuOpen} 
+                role="navigation"
+            >
                 <li className={styles.navItem}>
                     <Link href="/" className={styles.navLink}>
                         Accueil
@@ -61,7 +69,7 @@ const Navbar: React.FC = () => {
                 </li>
             </ul>
         </nav>
-    )
-}
+    );
+};
 
 export default Navbar;

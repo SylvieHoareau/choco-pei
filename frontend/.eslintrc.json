@@ -1,0 +1,26 @@
+{
+  "extends": [
+    "next/core-web-vitals", 
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@typescript-eslint/recommended"],
+      "parserOptions": {
+        "project": "./tsconfig.json"
+      }
+    }
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["react", "@typescript-eslint"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "no-unused-vars": "warn",
+    "no-console": "warn"
+  },
+  "linterOptions": {
+    "reportUnusedDisableDirectives": true
+  }
+}

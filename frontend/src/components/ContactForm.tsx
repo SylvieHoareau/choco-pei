@@ -1,56 +1,101 @@
+'use client';
+
+import { useState } from 'react';
 import Link from "next/link";
-import { useForm, ValidationError } from "@formspree/react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import styles from "../styles/contact.module.css";
+import styles from "../styles/ContactForm.module.css";
 
 const ContactForm = () => {
-  const formKey = process.env.NEXT_PUBLIC_FORMSPREE_KEY || "";
-  const [state, handleSubmit] = useForm(formKey);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: '',
+  });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  if (state.succeeded) {
-    return (
-      <div className={styles.successMessage}>
-        <Navbar />
-        <main className={styles.mainContainer}>
-          <h1>Merci pour votre message !</h1>
-          <p>Nous vous répondrons dans les plus brefs délais.</p>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus('loading');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Erreur lors de l\'envoi du message');
+      }
+
+      setStatus('success');
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error: any) {
+      setStatus('error');
+      setErrorMessage(error.message || 'Une erreur est survenue');
+    }
+  };
+
   return (
     <>
-      <Navbar />
       <main className={styles.mainContainer}>
         <div className={styles.divContainer}>
-          <h1>Contactez-nous</h1>
+          <h1 data-testid="contact-title">Contactez-nous</h1>
           <form className={styles.formContainer} onSubmit={handleSubmit}>
             <label htmlFor="name">Nom : </label>
-            <input type="text" id="name" name="name" required />
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              value={formData.name}
+              onChange={handleChange}
+              aria-label="Votre nom"
+              aria-describedby="name-help"
+              required 
+            />
 
             <label htmlFor="email">Email : </label>
             <input
               id="email"
               name="email"
               type="email"
+              value={formData.email}
+              onChange={handleChange}
+              aria-label="Votre email"
               aria-describedby="email-help"
               required
-            />
-            <ValidationError
-              prefix="Email"
-              field="email"
-              errors={state.errors}
             />
             <small id="email-help">
               Votre adresse ne sera jamais partagée.
             </small>
 
             <label htmlFor="message">Message : </label>
-            <textarea id="message" name="message" required />
+            <textarea 
+              id="message" 
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              aria-label="Votre message"
+              aria-describedby="message-help"
+              required 
+            />
 
-            <input type="checkbox" id="privacy" name="privacy" required />
+            <input 
+              type="checkbox" 
+              id="privacy" 
+              name="privacy"
+              aria-label="J'accepte la politique de confidentialité"
+              aria-describedby="privacy-help" 
+              required 
+            />
             <label htmlFor="privacy">
               J&apos;accepte la{" "}
               <Link href="/privacy-policy">Politique de confidentialité</Link>
@@ -59,20 +104,21 @@ const ContactForm = () => {
             <button
               type="submit"
               className={styles.submitButton}
-              disabled={state.submitting}
+              aria-label="Envoyer le formulaire"
+              data-testid="submit-button"
             >
-              Envoyer
+              {status === 'loading' ? 'Envoi...' : 'Envoyer' }
             </button>
 
-            {state.errors && Object.keys(state.errors).length > 0 && (
-              <p className={styles.errorMessage}>
-                Une erreur est survenue. Veuillez réessayer.
-              </p>
+            {status === 'success' && (
+              <p className={styles.successMessage}>Votre message a été envoyé avec succès !</p>
+            )}
+            {status === 'error' && (
+              <p className={styles.errorMessage}>Erreur : {errorMessage}</p>
             )}
           </form>
         </div>
       </main>
-      <Footer />
     </>
   );
 };

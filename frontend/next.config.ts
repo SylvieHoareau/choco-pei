@@ -1,7 +1,14 @@
-/** @type {import('next').NextConfig} */
+import type { NextConfig } from 'next';
+import type { Header } from 'next/dist/lib/load-custom-routes';
+
 const isDev = process.env.NODE_ENV === 'development';
 
-const securityHeaders = [
+type SecurityHeader = {
+  key: string;
+  value: string;
+};
+
+const securityHeaders: SecurityHeader[] = [
   {
     key: "Content-Security-Policy",
     value: isDev
@@ -10,16 +17,12 @@ const securityHeaders = [
   },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "Strict-Transport-Security", value: "max-age=31536000; includeSubDomains" },
-  { key: "X-Frame-Options", value: "DENY" }, // corrigé ici (avant c'était "X-Frame-Optiohns")
+  { key: "X-Frame-Options", value: "DENY" },
   { key: "X-XSS-Protection", value: "1; mode=block" },
   { key: "Referrer-Policy", value: "no-referrer" }
 ];
 
-const nextConfig = {
-  webpack: (config, { isServer }) => {
-    // Ajout éventuel de custom Webpack
-    return config;
-  },  
+const nextConfig: NextConfig = {
   images: {
     domains: ['images.unsplash.com']
   },
@@ -42,4 +45,4 @@ const nextConfig = {
   }
 };
 
-module.exports = nextConfig;
+export default nextConfig;

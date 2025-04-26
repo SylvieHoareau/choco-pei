@@ -41,7 +41,7 @@ describe('Navbar', () => {
   it('peut être activé avec la touche espace', () => {
     render(<Navbar />);
     const hamburger = screen.getByRole('button');
-    fireEvent.keyPress(hamburger, { key: ' ', code: 'Space' });
+    fireEvent.keyDown(hamburger, { key: ' ', code: 'Space' });
     expect(hamburger.getAttribute('aria-expanded')).toBe('true');
   });
 });
