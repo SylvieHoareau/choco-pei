@@ -39,9 +39,14 @@ const ContactForm = () => {
 
       setStatus('success');
       setFormData({ name: '', email: '', message: '', privacy: false });
-    } catch (error: any) {
+    } catch (error: unknown) {
       setStatus('error');
-      setErrorMessage(error.message || 'Une erreur est survenue');
+      
+      if (error instanceof Error) {
+        setErrorMessage(error.message || 'Une erreur est survenue');
+      } else {
+        setErrorMessage('Une erreur est survenue');
+      }
     }
   };
 

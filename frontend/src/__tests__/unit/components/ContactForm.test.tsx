@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+import type { Mock } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import ContactForm from '../../../components/ContactForm';
 
@@ -25,7 +26,7 @@ describe('ContactForm', () => {
         ok: true,
         json: () => Promise.resolve({}),
       })
-    ) as any);
+    ) as Mock);
 
     render(<ContactForm />);
 
@@ -51,7 +52,7 @@ describe('ContactForm', () => {
         ok: false,
         json: () => Promise.resolve({ message: 'Erreur serveur' }),
       })
-    ) as any);
+    ) as Mock);
 
     render(<ContactForm />);
 

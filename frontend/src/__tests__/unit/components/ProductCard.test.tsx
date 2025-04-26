@@ -6,9 +6,9 @@ import { Product } from '@/types/product';
 
 // Mock de next/image pour les tests
 vi.mock('next/image', () => ({
-  default: (props: any) => {
+  default: (props: React.ComponentProps<'img'>) => {
     // On simplifie l'affichage de l'image pour éviter des erreurs dans les tests
-    return <img {...props} />;
+    return <img alt={props.alt || ''} {...props} />;
   },
 }));
 
