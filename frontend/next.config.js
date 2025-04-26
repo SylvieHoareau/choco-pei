@@ -16,6 +16,10 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
+  webpack: (config, { isServer }) => {
+    // Ajout éventuel de custom Webpack
+    return config;
+  },  
   images: {
     domains: ['images.unsplash.com']
   },
