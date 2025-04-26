@@ -1,5 +1,5 @@
 import type { NextConfig } from 'next';
-import type { Header } from 'next/dist/lib/load-custom-routes';
+// import type { Header } from 'next/dist/lib/load-custom-routes';
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -23,6 +23,7 @@ const securityHeaders: SecurityHeader[] = [
 ];
 
 const nextConfig: NextConfig = {
+  outpu: 'export',
   images: {
     domains: ['images.unsplash.com']
   },
