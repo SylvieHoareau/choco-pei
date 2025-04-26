@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Link from "next/link";
+// import Link from 'next/link';
 import styles from "../styles/ContactForm.module.css";
 
 const ContactForm = () => {
@@ -9,6 +9,7 @@ const ContactForm = () => {
     name: '',
     email: '',
     message: '',
+    privacy: false,
   });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
@@ -37,7 +38,7 @@ const ContactForm = () => {
       }
 
       setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', message: '', privacy: false });
     } catch (error: any) {
       setStatus('error');
       setErrorMessage(error.message || 'Une erreur est survenue');
@@ -58,7 +59,6 @@ const ContactForm = () => {
               value={formData.name}
               onChange={handleChange}
               aria-label="Votre nom"
-              aria-describedby="name-help"
               required 
             />
 
@@ -70,7 +70,6 @@ const ContactForm = () => {
               value={formData.email}
               onChange={handleChange}
               aria-label="Votre email"
-              aria-describedby="email-help"
               required
             />
             <small id="email-help">
@@ -84,28 +83,26 @@ const ContactForm = () => {
               value={formData.message}
               onChange={handleChange}
               aria-label="Votre message"
-              aria-describedby="message-help"
               required 
             />
 
-            <input 
+            {/* <input 
               type="checkbox" 
               id="privacy" 
               name="privacy"
               aria-label="J'accepte la politique de confidentialité"
-              aria-describedby="privacy-help" 
+              onChange={(e) => setFormData({ ...formData, privacy: e.target.checked })}
               required 
             />
             <label htmlFor="privacy">
               J&apos;accepte la{" "}
               <Link href="/privacy-policy">Politique de confidentialité</Link>
-            </label>
+            </label> */}
 
             <button
               type="submit"
               className={styles.submitButton}
               aria-label="Envoyer le formulaire"
-              data-testid="submit-button"
             >
               {status === 'loading' ? 'Envoi...' : 'Envoyer' }
             </button>
