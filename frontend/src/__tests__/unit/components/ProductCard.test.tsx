@@ -6,10 +6,8 @@ import { Product } from '@/types/product';
 
 // Mock de next/image pour les tests
 vi.mock('next/image', () => ({
-  default: (props: React.ComponentProps<'img'>) => {
-    // On simplifie l'affichage de l'image pour éviter des erreurs dans les tests
-    return <img alt={props.alt || ''} {...props} />;
-  },
+    __esModule: true,
+    default: ({ alt }: { alt: string }) => <div data-testid="mocked-image" aria-label={alt} />,
 }));
 
 describe('ProductCard', () => {
