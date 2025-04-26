@@ -2,7 +2,8 @@
   "extends": [
     "next/core-web-vitals", 
     "eslint:recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   "overrides": [
     {
@@ -18,6 +19,9 @@
   "rules": {
     "react/react-in-jsx-scope": "off",
     "no-unused-vars": "warn",
-    "no-console": "warn"
+    "no-console": "warn",
+    "react/prop-types": "off",  // Désactive la règle prop-types
+    "@typescript-eslint/no-explicit-any": "warn", // Tu peux ajuster cette règle selon ton besoin
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   }
 }
