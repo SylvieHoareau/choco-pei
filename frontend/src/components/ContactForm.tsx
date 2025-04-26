@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-// import Link from 'next/link';
+import Link from 'next/link';
 import styles from "../styles/ContactForm.module.css";
 
 const ContactForm = () => {
@@ -86,7 +86,7 @@ const ContactForm = () => {
               required 
             />
 
-            {/* <input 
+            <input 
               type="checkbox" 
               id="privacy" 
               name="privacy"
@@ -97,7 +97,7 @@ const ContactForm = () => {
             <label htmlFor="privacy">
               J&apos;accepte la{" "}
               <Link href="/privacy-policy">Politique de confidentialité</Link>
-            </label> */}
+            </label>
 
             <button
               type="submit"
