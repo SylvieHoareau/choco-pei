@@ -1,42 +1,69 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import { describe, it, vi, expect } from 'vitest';
-import ContactForm from '@/components/ContactForm';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import ContactForm from '../../../components/ContactForm';
 
-// Mock de useForm de Formspree
-vi.mock('@formspree/react', () => ({
-  useForm: () => [
-    { submitting: false, succeeded: false, errors: [] },
-    vi.fn(), // handleSubmit
-  ],
-  ValidationError: () => null,
-}));
+// On mocke fetch avant chaque test
+beforeEach(() => {
+  vi.restoreAllMocks();
+});
 
 describe('ContactForm', () => {
-  it('affiche le formulaire de contact', () => {
+  it('affiche correctement les champs du formulaire', () => {
     render(<ContactForm />);
 
-    // Vérifie que les champs sont présents
-    expect(screen.getByLabelText(/Nom/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Email/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Message/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/Politique de confidentialité/i)).toBeInTheDocument();
-
-    // Vérifie que le bouton Envoyer est présent
-    expect(screen.getByRole('button', { name: /Envoyer/i })).toBeInTheDocument();
+    expect(screen.getByLabelText(/Votre nom/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Votre email/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/Votre message/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/J'accepte la politique de confidentialité/i)).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /envoyer/i })).toBeInTheDocument();
   });
 
-  it('permet de remplir le formulaire', async () => {
+  it('envoie le formulaire avec succès', async () => {
+    // Mock du fetch pour renvoyer une réponse OK
+    vi.stubGlobal('fetch', vi.fn(() =>
+      Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve({}),
+      })
+    ) as any);
+
     render(<ContactForm />);
 
-    // Remplir les champs
-    fireEvent.change(screen.getByLabelText(/Nom/i), { target: { value: 'Jean Dupont' } });
-    fireEvent.change(screen.getByLabelText(/Email/i), { target: { value: 'jean.dupont@example.com' } });
-    fireEvent.change(screen.getByLabelText(/Message/i), { target: { value: 'Ceci est un message de test.' } });
-    fireEvent.click(screen.getByLabelText(/Politique de confidentialité/i));
+    // On remplit les champs
+    fireEvent.change(screen.getByLabelText(/Votre nom/i), { target: { value: 'Jean Dupont' } });
+    fireEvent.change(screen.getByLabelText(/Votre email/i), { target: { value: 'jean@example.com' } });
+    fireEvent.change(screen.getByLabelText(/Votre message/i), { target: { value: 'Bonjour !' } });
+    fireEvent.click(screen.getByLabelText(/J'accepte la politique de confidentialité/i));
 
-    // Vérifie que les champs contiennent la bonne valeur
-    expect(screen.getByLabelText(/Nom/i)).toHaveValue('Jean Dupont');
-    expect(screen.getByLabelText(/Email/i)).toHaveValue('jean.dupont@example.com');
-    expect(screen.getByLabelText(/Message/i)).toHaveValue('Ceci est un message de test.');
+    // On soumet
+    fireEvent.click(screen.getByRole('button', { name: /envoyer/i }));
+
+    // On attend que le message de succès apparaisse
+    await waitFor(() => {
+      expect(screen.getByText(/Votre message a été envoyé avec succès/i)).toBeInTheDocument();
+    });
+  });
+
+  it('affiche un message d\'erreur si l\'envoi échoue', async () => {
+    // Mock du fetch pour renvoyer une erreur
+    vi.stubGlobal('fetch', vi.fn(() =>
+      Promise.resolve({
+        ok: false,
+        json: () => Promise.resolve({ message: 'Erreur serveur' }),
+      })
+    ) as any);
+
+    render(<ContactForm />);
+
+    fireEvent.change(screen.getByLabelText(/Votre nom/i), { target: { value: 'Jean Dupont' } });
+    fireEvent.change(screen.getByLabelText(/Votre email/i), { target: { value: 'jean@example.com' } });
+    fireEvent.change(screen.getByLabelText(/Votre message/i), { target: { value: 'Test' } });
+    fireEvent.click(screen.getByLabelText(/J'accepte la politique de confidentialité/i));
+
+    fireEvent.click(screen.getByRole('button', { name: /envoyer/i }));
+
+    await waitFor(() => {
+      expect(screen.getByText(/Erreur : Erreur serveur/i)).toBeInTheDocument();
+    });
   });
 });
