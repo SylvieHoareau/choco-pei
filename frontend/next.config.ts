@@ -23,7 +23,6 @@ const securityHeaders: SecurityHeader[] = [
 ];
 
 const nextConfig: NextConfig = {
-  outpu: 'export',
   images: {
     domains: ['images.unsplash.com']
   },
@@ -43,7 +42,7 @@ const nextConfig: NextConfig = {
         ],
       },
     ];
-  }
+  },
 };
 
 export default nextConfig;
