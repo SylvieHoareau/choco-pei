@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
-    "build": "next build && next export",
+    "build": "next build",
     "start": "next start",
+    "prod": "next build && next start",
     "test": "vitest",
     "lint": "next lint",
-    "prod": "next build && next start",
     "clean": "rm -rf .next node_modules package-lock.json && npm install"
   },
   "dependencies": {
@@ -37,7 +37,6 @@
     "autoprefixer": "^10.4.20",
     "eslint": "^9.25.1",
     "eslint-config-next": "^15.3.1",
-    "eslint-plugin-next": "^0.0.0",
     "jsdom": "^26.1.0",
     "playwright": "^1.52.0",
     "postcss": "^8.4.49",
