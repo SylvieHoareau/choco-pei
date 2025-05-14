@@ -34,11 +34,14 @@
     justify-content: column;
     padding: 0;
     align-items: center;
+}
+
+.navList.hide {
     display: none;
 }
 
 .navList.show {
-    display: block;
+    display: flex;
 }
 
 /* Style des éléments de navigation */
