@@ -22,12 +22,14 @@ const Navbar: React.FC = () => {
             className={styles.nav} 
             aria-label="Navigation principale"
         >
+            {/* Marque */}
             <div className={styles.logo}>
                 <Link href="/" className={styles.title}>
                     <h1>Choco Péi</h1>
                 </Link>
             </div>
 
+            {/* Menu hamburger */}  
             <div 
                 className={`${styles.hamburger} ${isMenuOpen ? styles.open : ''}`} 
                 onClick={toggleMenu} 
@@ -42,6 +44,7 @@ const Navbar: React.FC = () => {
                 <span></span>
             </div>
 
+            {/* Liens de navigation */}
             <ul 
                 className={`${styles.navList} ${isMenuOpen ? styles.show : styles.hide}`} 
                 aria-hidden={!isMenuOpen} 

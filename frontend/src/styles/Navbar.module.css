@@ -30,8 +30,8 @@
 /* Menu déroulant */
 .navList {
     list-style: none;
-    display: flex;
-    justify-content: column;
+    display: none;
+    flex-direction: column;
     padding: 0;
     align-items: center;
 }
@@ -127,7 +127,7 @@
     } 
 
     .navList {
-        display: flex;
+        display: flex !important;
         flex-direction: row;
     }
 
