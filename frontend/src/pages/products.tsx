@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import ProductCard from "../components/ProductCard";
 import { GetServerSideProps } from 'next';
 import { Product } from "../types/product";
+import { products as productsData } from "../data/products";
 import styles from "../styles/products.module.css";
 
 // Typage des props
@@ -45,8 +46,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         products = [];
     } else {
         // Appel à l'API pour récupérer les produits
-        const res = await fetch('http://localhost:3000/api/products');
-        products = await res.json();
+        products = productsData;
     }
     
     return {
