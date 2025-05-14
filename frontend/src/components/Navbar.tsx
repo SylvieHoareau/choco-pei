@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
             </div>
 
             <ul 
-                className={styles.navList} 
+                className={`${styles.navList} ${isMenuOpen ? styles.show : styles.hide}`} 
                 aria-hidden={!isMenuOpen} 
                 role="navigation"
             >
